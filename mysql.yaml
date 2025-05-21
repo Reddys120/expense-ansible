@@ -23,4 +23,10 @@
       login_user: root
       login_password: ExpenseApp@1
       login_host: mysql.reddytraders.shop
-      filter: version
+    register: mysql_info
+    ignore_errors: true
+      
+      
+  - name : Print the output
+    ansible.builtin.debug:
+      msg: "mysql_info: {{ mysql_info }}"
