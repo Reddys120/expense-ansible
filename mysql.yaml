@@ -6,3 +6,16 @@
     ansible.builtin.package:
       name: mysql-server
       state: installed
+  
+  - name: Start and Enable Mysql service
+    ansible.builtin.service:
+      name: mysqld
+      service: started
+
+  - name: test mysql_secure_installation
+    mysql_secure_installation:
+    login_password: ''
+    new_password: ExpenseApp@1
+    user: root
+    login_host: local
+    hosts: ['local']
