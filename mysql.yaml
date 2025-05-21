@@ -1,5 +1,5 @@
 - name: Configure Mysql server
-  hosts: 172.31.46.255
+  hosts: all
   become: yes
   tasks: 
   - name: Install MySQL Server
