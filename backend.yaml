@@ -41,3 +41,4 @@
     ansible.builtin.npm:
       name: npm
       state: present
+      path: /app
