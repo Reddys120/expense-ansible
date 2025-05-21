@@ -29,7 +29,8 @@
     ansible.builtin.get_url:
       url:  https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
       dest: /tmp/backend.zip
-      mode: '0440'
+      mode: '755'
+      
   - name: Extract backend code into /app
     ansible.builtin.unarchive:
       src: /tmp/backend.zip
