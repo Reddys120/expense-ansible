@@ -39,6 +39,6 @@
        backup: yes
 
   - name: Restart Nginx Service to load the changes of the configuration
-    ansible.builtin.package:
+    ansible.builtin.service:
       name: nginx
       state: restarted
