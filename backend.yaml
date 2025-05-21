@@ -43,7 +43,7 @@
       state: present
       path: /app
 
-  - name: Copy a new "ntp.conf" file into place, backing up the original if it differs from the copied version
+  - name: Copy a new "backend.service" file into place, backing up the original if it differs from the copied version
     ansible.builtin.copy:
        src: /home/ec2-user/DevOps/expense-ansible/backend.service
        dest: /etc/systemd/system/backend.service
@@ -51,3 +51,11 @@
        group: root
        mode: '644'
        backup: yes
+
+  - name: Restart service cron on centos, in all cases, also issue daemon-reload to pick up config changes
+    ansible.builtin.systemd_service:
+      name: backend
+      state: started
+      daemon_reload: true
+      
+
