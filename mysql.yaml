@@ -11,4 +11,4 @@
     service:
       name: mysql
       service: started
-      enabled: yes
+      enable: yes
