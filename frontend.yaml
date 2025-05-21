@@ -6,7 +6,7 @@
     ansible.builtin.package:
       name: nginx
       state: installed
-      enabled: yes
+      #enabled: yes
   
   - name: Start Nginx
     ansible.builtin.package:
