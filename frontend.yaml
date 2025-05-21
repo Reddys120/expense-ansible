@@ -42,3 +42,8 @@
     ansible.builtin.service:
       name: nginx
       state: restarted
+    register: Logs
+  - name: print result
+    ansible.builtin.debug:
+      msg: "{{ Logs }}"
+
