@@ -6,12 +6,12 @@
     ansible.builtin.package:
       name: nginx
       state: installed
-      enabled: yes
   
   - name: Start Nginx
-    ansible.builtin.package:
+    ansible.builtin.service:
       name: nginx
       state: started
+      enabled: yes
 
   - name: Remove the default content that web server is serving
     ansible.builtin.file:
