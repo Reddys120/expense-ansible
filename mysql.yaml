@@ -8,7 +8,15 @@
       state: installed
   
   - name: Start and Enable Mysql service
+    #ansible.builtin.service: or service:
     service:
       name: mysqld
       state: started
       enabled: yes
+
+- name: Get MySQL version
+  community.mysql.mysql_info:
+    login_user: root
+    login_password: ExpenseApp@1
+    login_host: mysql.reddytraders.shop
+    filter: version
