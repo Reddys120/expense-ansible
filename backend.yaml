@@ -40,4 +40,4 @@
   - name: Install NPM libraries
     ansible.builtin.npm:
       name: npm
-      state: installed
+      state: present
