@@ -10,8 +10,11 @@
 
   - name: Install nodejs
     ansible.builtin.package:
-      name: nodejs
+      name: "{{ item }}"
       state: present
+    loop:
+      - nodejs
+      - mysql
     
   - name: Create a user
     ansible.builtin.user:
@@ -58,8 +61,13 @@
       state: started
       enabled: yes
       daemon_reload: true
+  - name: #Import dump.sql with specific latin1 encoding, similar to mysql -u <username> --default-character-set=latin1 -p <password> < dump.sql
+    community.mysql.mysql_db:
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: mysql.reddytraders.shop
+      state: import
+      name: all
+      target: /app/schema/backend.sql
 
-  - name: Install MySQL Server
-    ansible.builtin.package:
-      name: mysql-client
-      state: present
+    #mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
