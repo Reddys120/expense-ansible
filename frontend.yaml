@@ -30,9 +30,14 @@
 
   - name: Copy a new "backend.service" file into place, backing up the original if it differs from the copied version
     ansible.builtin.copy:
-       src: /home/ec2-user/DevOps/expense-ansible/backend.service
-       dest: /etc/systemd/system/backend.service
+       src: /home/ec2-user/DevOps/expense-ansible/expense.conf
+       dest: /etc/nginx/default.d/expense.conf
        owner: root
        group: root
        mode: '644'
        backup: yes
+
+  - name: Restart Nginx Service to load the changes of the configuration
+    ansible.builtin.package:
+      name: nginx
+      state: restarted
