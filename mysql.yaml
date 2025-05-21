@@ -14,8 +14,8 @@
 
   - name: test mysql_secure_installation
     mysql_secure_installation:
-    login_password: ''
-    new_password: ExpenseApp@1
-    user: root
-    login_host: local
-    hosts: ['local']
+      login_password: ''
+      new_password: ExpenseApp@1
+      user: root
+      login_host: local
+      hosts: ['local']
