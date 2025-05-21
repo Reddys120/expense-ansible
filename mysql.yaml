@@ -42,7 +42,7 @@
     community.mysql.mysql_query:
       login_user: root
       login_password: ExpenseApp@1
-      login_host: mysql
+      login_host: hosts
       login_db: sys
       query: "select  *   from version;;"
     register: mysql_version
