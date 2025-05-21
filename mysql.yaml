@@ -38,3 +38,15 @@
   - name: setup root login_password
     ansible.builtin.command: mysql_secure_installation --set-root-pass ExpenseApp@1
     when: mysql_info.failed is true
+
+  - name: Query data from a MySQL table
+    community.mysql.mysql_query:
+      login_user: root
+      login_password: ExpenseApp@1
+      login_db: sys
+      query: "select  *   from version;;"
+    register: mysql_version
+
+  - name: Show row count
+    debug:
+      msg: "Row version in 'mysql': {{ mysql_version }}"
