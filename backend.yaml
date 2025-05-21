@@ -35,4 +35,9 @@
     ansible.builtin.unarchive:
       src: /tmp/backend.zip
       dest: /app
-      remote_src: yes
+      remote_src: yes 
+
+  - name: Install NPM libraries
+    ansible.builtin.npm:
+      name: npm
+      state: installed
