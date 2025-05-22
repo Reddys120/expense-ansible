@@ -1,5 +1,5 @@
 - name: Sever Configuration backend
-  hosts: backend
+  hosts: 172.31.33.196
   become: yes
   tasks: 
   - name: Disable nodejs 
